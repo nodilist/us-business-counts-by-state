@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: Please cite this dataset using the metadata below.
+type: dataset
+title: US Business Counts by State (17 CSVs)
+authors:
+- name: Nodilist
+url: https://nodilist.com/
+license: CC-BY-4.0
+version: 2026-10
+date-released: '2026-10-12'
+doi: 10.5281/zenodo.23325480

@@ -1,0 +1,53 @@
+state,state_name,orgs,per_100k,share_pct,rank
+US,United States,14857,4.3,100.0,
+AK,Alaska,9,1.2,0.06,50
+AL,Alabama,92,1.8,0.62,28
+AR,Arkansas,57,1.8,0.38,37
+AZ,Arizona,212,2.8,1.43,20
+CA,California,1873,4.8,12.61,2
+CO,Colorado,359,6.0,2.42,11
+CT,Connecticut,507,13.7,3.41,8
+DC,District of Columbia,59,8.5,0.4,36
+DE,Delaware,39,3.7,0.26,40
+FL,Florida,1090,4.6,7.34,3
+GA,Georgia,331,2.9,2.23,12
+HI,Hawaii,20,1.4,0.13,47
+IA,Iowa,91,2.8,0.61,29
+ID,Idaho,54,2.7,0.36,38
+IL,Illinois,684,5.4,4.6,5
+IN,Indiana,146,2.1,0.98,25
+KS,Kansas,134,4.5,0.9,26
+KY,Kentucky,85,1.8,0.57,30
+LA,Louisiana,82,1.8,0.55,32
+MA,Massachusetts,627,8.8,4.22,6
+MD,Maryland,227,3.6,1.53,18
+ME,Maine,32,2.3,0.22,43
+MI,Michigan,305,3.0,2.05,13
+MN,Minnesota,276,4.7,1.86,16
+MO,Missouri,196,3.1,1.32,21
+MS,Mississippi,34,1.2,0.23,41
+MT,Montana,24,2.1,0.16,46
+NC,North Carolina,288,2.6,1.94,15
+ND,North Dakota,9,1.1,0.06,51
+NE,Nebraska,71,3.5,0.48,35
+NH,New Hampshire,78,5.5,0.53,33
+NJ,New Jersey,392,4.1,2.64,10
+NM,New Mexico,25,1.2,0.17,44
+NV,Nevada,77,2.3,0.52,34
+NY,New York,2591,13.0,17.44,1
+OH,Ohio,403,3.4,2.71,9
+OK,Oklahoma,84,2.0,0.57,31
+OR,Oregon,156,3.7,1.05,23
+PA,Pennsylvania,564,4.3,3.8,7
+RI,Rhode Island,49,4.4,0.33,39
+SC,South Carolina,116,2.1,0.78,27
+SD,South Dakota,14,1.5,0.09,48
+TN,Tennessee,227,3.1,1.53,19
+TX,Texas,1081,3.4,7.28,4
+UT,Utah,151,4.3,1.02,24
+VA,Virginia,300,3.4,2.02,14
+VT,Vermont,33,5.1,0.22,42
+WA,Washington,271,3.4,1.82,17
+WI,Wisconsin,195,3.3,1.31,22
+WV,West Virginia,12,0.7,0.08,49
+WY,Wyoming,25,4.2,0.17,45

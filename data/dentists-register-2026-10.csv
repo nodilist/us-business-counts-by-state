@@ -1,0 +1,53 @@
+state,state_name,orgs,per_100k,share_pct,rank
+US,United States,217576,63.7,100.0,
+AK,Alaska,622,84.4,0.29,45
+AL,Alabama,2388,46.0,1.1,28
+AR,Arkansas,1614,51.8,0.74,33
+AZ,Arizona,4869,63.9,2.24,15
+CA,California,32584,82.8,14.97,1
+CO,Colorado,4767,79.3,2.19,16
+CT,Connecticut,2532,68.6,1.16,25
+DC,District of Columbia,677,97.6,0.31,44
+DE,Delaware,426,40.2,0.2,49
+FL,Florida,13966,59.5,6.42,3
+GA,Georgia,5551,49.1,2.55,14
+HI,Hawaii,1022,71.3,0.47,39
+IA,Iowa,1648,50.9,0.76,32
+ID,Idaho,1254,61.8,0.58,37
+IL,Illinois,8953,70.4,4.11,5
+IN,Indiana,3632,52.1,1.67,19
+KS,Kansas,1558,52.3,0.72,34
+KY,Kentucky,2473,53.7,1.14,26
+LA,Louisiana,2280,49.4,1.05,30
+MA,Massachusetts,5829,81.5,2.68,12
+MD,Maryland,4343,69.3,2.0,17
+ME,Maine,791,55.9,0.36,42
+MI,Michigan,6768,66.8,3.11,8
+MN,Minnesota,3359,57.6,1.54,20
+MO,Missouri,3179,50.7,1.46,21
+MS,Mississippi,1426,48.3,0.66,35
+MT,Montana,700,61.2,0.32,43
+NC,North Carolina,6355,56.8,2.92,9
+ND,North Dakota,471,58.9,0.22,48
+NE,Nebraska,1300,64.4,0.6,36
+NH,New Hampshire,958,67.7,0.44,40
+NJ,New Jersey,7146,74.8,3.28,7
+NM,New Mexico,1218,57.3,0.56,38
+NV,Nevada,1973,60.1,0.91,31
+NY,New York,13513,67.6,6.21,4
+OH,Ohio,5971,50.2,2.74,11
+OK,Oklahoma,2336,56.7,1.07,29
+OR,Oregon,2762,64.6,1.27,24
+PA,Pennsylvania,7827,59.9,3.6,6
+RI,Rhode Island,551,49.4,0.25,46
+SC,South Carolina,3048,54.7,1.4,23
+SD,South Dakota,497,53.1,0.23,47
+TN,Tennessee,3729,51.0,1.71,18
+TX,Texas,19605,61.8,9.01,2
+UT,Utah,2435,68.8,1.12,27
+VA,Virginia,5826,65.6,2.68,13
+VT,Vermont,402,62.4,0.18,50
+WA,Washington,6002,75.0,2.76,10
+WI,Wisconsin,3178,53.2,1.46,22
+WV,West Virginia,930,52.7,0.43,41
+WY,Wyoming,378,64.2,0.17,51

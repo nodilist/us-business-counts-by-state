@@ -1,0 +1,131 @@
+Nodilist aggregate counts — Creative Commons Attribution 4.0 International (CC BY 4.0).
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Nodilist counts are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/. Credit Nodilist and keep the third-party data credits given in each file section and in LICENSE. The 2020 U.S. Religion Census congregation figures cited on nodilist.com's church pages are not included (ASARB, all rights reserved). This package contains aggregate statistics, not upstream contact records.
+
+THIRD-PARTY-NOTICES
+
+The following source and licence wording is reproduced from each provenance file. Source sections may also name contextual benchmarks not present in the CSV. Where the provenance states no upstream licence, none is inferred here.
+
+## chiropractors-register-2026-10.csv
+
+- CMS NPPES Data Dissemination V.2, file of 2026-09-14 (https://download.cms.gov/nppes/NPI_Files.html), local copy `data/nppes/work/npidata_pfile_20050523-20260913.csv`.
+- NUCC Health Care Provider Taxonomy code set (https://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57), for specialty names.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## churches-register-2026-10.csv
+
+- Overture Maps Foundation, places theme, release 2026-09-23.1 (s3://overturemaps-us-west-2/release/2026-09-23.1/theme=places/type=place/), read 2026-10-03. Overture places combine Meta, Microsoft and other open sources; see https://docs.overturemaps.org/guides/places/. Licence: CDLA Permissive 2.0 (places theme; per-record licences below).
+- 2020 U.S. Religion Census state summary (https://www.usreligioncensus.org/sites/default/files/2023-06/2020_USRC_Summaries.xlsx, file dated 2023-06, downloaded 2026-10-03) for the cited congregation figures by state.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the per-100,000 rates.
+
+Contains data from Overture Maps Foundation, licensed under CDLA Permissive 2.0 (https://cdla.dev/permissive-2-0/).
+
+Per-record `sources` in the release (record-level entries only; Overture's own confidence calculation is left out). A place counts once under each licence or dataset it carries. Per-source licences checked on https://docs.overturemaps.org/attribution/ on 2026-10-03: Meta, Microsoft, PinMeTo, Krick, RenderSEO, DAC and BrightQuery under CDLA Permissive 2.0; Foursquare under Apache 2.0 (with its notice); AllThePlaces under CC0 1.0. No places source is listed under ODbL.
+
+17,605 church locations carry a licence other than CDLA Permissive 2.0 (or none). Apache 2.0 (Foursquare) requires keeping Foursquare's copyright line, the licence and its notice file when the data is redistributed, so a list file with these rows must carry that notice, or leave the rows out. CC0 (AllThePlaces) needs no notice. No kept row is ODbL.
+
+## dental-offices-2026-09.csv
+
+1. **BLS QCEW, 2025 Q4, NAICS 621210 Offices of dentists**, open-data API https://data.bls.gov/cew/data/api/2025/4/industry/621210.csv, saved as `data/bls/qcew_2025q4_621210.csv`. Rows with `own_code` 5 (private). US: 138,795 establishments, which equals the sum of the 51 state rows. Government-owned offices add 14 nationally (own codes 2 and 3) and are ignored. Coverage: establishments with employees under state unemployment insurance.
+2. **Census County Business Patterns 2023** (the latest year we could obtain), state file `cbp23st.zip`, from https://www2.census.gov/programs-surveys/cbp/datasets/2023/cbp23st.zip. census.gov and data.census.gov return HTTP 403 (Cloudflare) to this machine, and api.census.gov now requires a key. The file came from the Internet Archive capture of 2026-08-20 (https://web.archive.org/web/20260820164306id_/https://www2.census.gov/programs-surveys/cbp/datasets/2023/cbp23st.zip) and is saved in `data/census/`. `naics`=621210, `lfo`='-': 135,665 establishments in the 50 states + DC, 51,142 of them with fewer than 5 employees. We found no archived CBP 2024 file and couldn't confirm whether it is published.
+3. **Census Nonemployer Statistics 2024**, state file `nonemp24st.zip`, https://www2.census.gov/programs-surveys/nonemployer-statistics/datasets/2024/historical-datasets/nonemp24st.zip, via the Internet Archive capture of 2026-09-29. The state file goes down to NAICS 4-digit only. 6212 (Offices of dentists) contains only 621210, so it is the same industry. `LFO`='-': 57,079 nonemployer firms in the 50 states + DC (2023 file: 54,452). These are businesses with no paid employees, mostly sole proprietors. We could not measure how many run their own office, so they are shown for context and excluded from the estimate.
+4. **CMS NPPES, file dated 2026-09-14** (see `dentists-stats-2026-09.md`), with its 216,788 candidate practice locations (normalized street address + ZIP5).
+5. **CMS Medicare Part D Prescribers by Provider, data year 2024.** API id `14d8e8a9-7e9b-4370-a044-bf97c46b4b44`. We used the full NPI list, plus the practice addresses of the 140,007 rows with a dental prescriber type ("Dentist", "Oral Surgery (Dentist only)", "Maxillofacial Surgery", "Oral & Maxillofacial Surgery"). The addresses were normalized the same way as NPPES.
+6. **Overture Maps places, release 2026-09-23.1** (latest on `s3://overturemaps-us-west-2/release/` on 2026-09-29), 16 GeoParquet files of about 11 GB, scanned remotely with DuckDB httpfs in 450 seconds. This release has no `categories` column. Categories are in `taxonomy.primary` and `taxonomy.hierarchy`. The dental categories found: `dental_clinic` 101,947; `general_dentistry` 44,296; `orthodontics` 15,298; `pediatric_dentistry` 10,710; `cosmetic_dentistry` 9,189; `oral_and_maxillofacial_surgery` 8,316; `endodontics` 4,601; `periodontics` 3,218; `prosthodontics` 814; `dental_hygiene` 100. That totals 198,489 US rows. Excluded as non-offices: `b2b_dental_lab`, `dental_supply_store`, `dentistry_school`, `student_union`, `mobile_dent_repair`. States come from `addresses[1].region`, which holds two-letter codes (21 rows had none).
+7. Population is not used here.
+
+Overture credit (same release; wording from church/veterinary provenance):
+Contains data from Overture Maps Foundation, licensed under CDLA Permissive 2.0 (https://cdla.dev/permissive-2-0/).
+
+## dentists-register-2026-10.csv
+
+- CMS NPPES Data Dissemination V.2, file of 2026-09-14 (https://download.cms.gov/nppes/NPI_Files.html), local copy `data/nppes/work/npidata_pfile_20050523-20260913.csv`.
+- NUCC Health Care Provider Taxonomy code set (https://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57), for specialty names.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## dentists-stats-2026-09.csv
+
+1. **CMS NPPES Data Dissemination V.2, file dated 2026-09-14** (`NPPES_Data_Dissemination_September_2026_V2.zip`, SHA-256 `6573e0d1…3cec4`), from https://download.cms.gov/nppes/NPI_Files.html, downloaded 2026-09-20. Extraction and clustering are documented in [the dental feasibility report](../../research/2026-09-20-dental-feasibility/170724Z/report.md) (scripts `01_extract_dental.py` and `02_analyze.py` in that folder). The stats script reads the derived files `data/nppes/derived/core.parquet`, `loc2.parquet`, `spec.parquet` and `clusters.parquet` (not in Git; `data/` is ignored).
+2. **CMS Medicare Part D Prescribers - by Provider, data year 2024.** Catalog entry "Medicare Part D Prescribers - by Provider : 2024-12-03", modified 2026-08-03 (https://data.cms.gov/data.json). API: https://data.cms.gov/data-api/v1/dataset/14d8e8a9-7e9b-4370-a044-bf97c46b4b44/data. All 1,416,883 rows were paged on 2026-09-29 with four columns (NPI, prescriber type, state, total claims). Every NPI is kept whatever its prescriber type, and the join to dental NPIs is by NPI. 138,329 of our dentist NPIs appear (131,021 typed "Dentist", 5,625 "Oral Surgery (Dentist only)", the rest in other types). CMS suppresses prescribers with fewer than 11 claims in the year. 2024 is the latest data year in the catalog on 2026-09-29.
+3. **US Census Bureau, Vintage 2025 population estimates, resident population on July 1, 2025** (release "Annual Estimates of the Population for the U.S. and States, and for Puerto Rico", published 2026-01-27). Census's own file `NST-EST2025-ALLDATA.csv` (https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/state/totals/NST-EST2025-ALLDATA.csv) and table page returned HTTP 403 (Cloudflare block) from this machine on 2026-09-29. The same Census series was taken from FRED, series `<ST>POP` (e.g. https://fred.stlouisfed.org/series/TXPOP; "Source: U.S. Census Bureau", thousands of persons with three decimals, i.e. exact persons; FRED last updated 2026-03-03), retrieved 2026-09-29 and saved to `data/census/fred_state_pop_v2025.csv`. Check: the Texas 2024 to 2025 change in the FRED data is 391,243, the same figure as the Census Vintage 2025 press release. The 50 states + DC sum to 341,784,857. **Verified 2026-09-29:** all 51 values match `POPESTIMATE2025` in the official `NST-EST2025-ALLDATA.csv`, taken from the Internet Archive capture of 2026-08-19 (https://web.archive.org/web/20260819082738id_/https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/state/totals/NST-EST2025-ALLDATA.csv) and saved to `data/census/`. The published page rounds our computed counts (Žan's rule of 2026-09-29), while this CSV keeps exact values.
+4. External benchmarks quoted on the page (not in the CSV):
+   - ADA Health Policy Institute, "Dentist Workforce", https://www.ada.org/resources/research/health-policy-institute/dentist-workforce, accessed 2026-09-29: 205,088 professionally active dentists as of 2025; 60.0 per 100,000 population; 21.2% in an ADA-recognized specialty area.
+   - BLS OEWS, May 2025, national, all industries, employment (BLS public API, 2026-09-29): Dentists 29-1020 = 141,610 (series OEUN000000000000029102001); General 29-1021 = 124,390; Oral and Maxillofacial Surgeons 29-1022 = 4,910; Orthodontists 29-1023 = 6,210; Prosthodontists 29-1024 = 870; All Other Specialists 29-1029 = 5,230. OEWS excludes the self-employed.
+   - BLS QCEW, NAICS 621210 Offices of dentists, US, private, number of establishments (series ENUUS000205621210, BLS public API, 2026-09-29): 138,795 in Q4 2025; 138,982 in Q1 2026 (preliminary).
+
+License of the published CSV: CC BY 4.0 (attribution: nodilist.com, from CMS and US Census Bureau data).
+
+## dso-groups-2026-09.csv
+
+- **Source file:** CMS NPPES Data Dissemination V.2, file dated 14 September 2026 (`NPPES_Data_Dissemination_September_2026_V2.zip`, https://download.cms.gov/nppes/NPI_Files.html). Downloaded and processed on 20 September 2026.
+
+## hedge-funds-register-2026-10.csv
+
+- SEC, Information About Registered Investment Advisers and Exempt Reporting Advisers (https://www.sec.gov/data-research/sec-markets-data/information-about-registered-investment-advisers-exempt-reporting-advisers): `ia100226.zip` (holds `ia09012026.csv`) and `ia100226-exempt.zip` (holds `ia100226-exempt.csv`), file of 2026-10-02, read from disk (P8-P13); first downloaded 2026-10-03 with a User-Agent naming nodilist and a contact email, per the SEC's fair-access policy.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## hospitals-register-2026-10.csv
+
+- CMS Provider Data Catalog, "Hospital General Information", dataset xubh-q36u (https://data.cms.gov/provider-data/dataset/xubh-q36u). Metastore `modified` date 2026-07-22 (used as the file date), `released` 2026-08-13; downloaded 2026-10-04 from https://data.cms.gov/provider-data/sites/default/files/resources/893c372430d9d71a1c52737d01239d47_1785189955/Hospital_General_Information.csv. CMS describes it as "a list of all hospitals that have been registered with Medicare". Public domain (US government work).
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## optometrists-register-2026-10.csv
+
+- CMS NPPES Data Dissemination V.2, file of 2026-09-14 (https://download.cms.gov/nppes/NPI_Files.html), local copy `data/nppes/work/npidata_pfile_20050523-20260913.csv`.
+- NUCC Health Care Provider Taxonomy code set (https://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57), for specialty names.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## pharmacies-register-2026-10.csv
+
+- CMS NPPES Data Dissemination V.2, file of 2026-09-14 (https://download.cms.gov/nppes/NPI_Files.html), local copy `data/nppes/work/npidata_pfile_20050523-20260913.csv`.
+- NUCC Health Care Provider Taxonomy code set (https://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57), for specialty names.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## physical-therapists-register-2026-10.csv
+
+- CMS NPPES Data Dissemination V.2, file of 2026-09-14 (https://download.cms.gov/nppes/NPI_Files.html), local copy `data/nppes/work/npidata_pfile_20050523-20260913.csv`.
+- NUCC Health Care Provider Taxonomy code set (https://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57), for specialty names.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## physicians-register-2026-10.csv
+
+- CMS NPPES Data Dissemination V.2, file of 2026-09-14 (https://download.cms.gov/nppes/NPI_Files.html), local copy `data/nppes/work/npidata_pfile_20050523-20260913.csv`.
+- NUCC Health Care Provider Taxonomy code set (https://www.nucc.org/index.php/code-sets-mainmenu-41/provider-taxonomy-mainmenu-40/csv-mainmenu-57), for specialty names.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## private-equity-firms-register-2026-10.csv
+
+- SEC, Information About Registered Investment Advisers and Exempt Reporting Advisers (https://www.sec.gov/data-research/sec-markets-data/information-about-registered-investment-advisers-exempt-reporting-advisers): `ia100226.zip` (holds `ia09012026.csv`) and `ia100226-exempt.zip` (holds `ia100226-exempt.csv`), file of 2026-10-02, read from disk (P8-P13); first downloaded 2026-10-03 with a User-Agent naming nodilist and a contact email, per the SEC's fair-access policy.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## ria-firms-register-2026-10.csv
+
+- SEC, Information About Registered Investment Advisers and Exempt Reporting Advisers (https://www.sec.gov/data-research/sec-markets-data/information-about-registered-investment-advisers-exempt-reporting-advisers): `ia100226.zip` (file of 2026-10-02; the zip holds `ia09012026.csv`, an inner name the SEC did not update, but its latest filing and status dates run to the end of the prior month) and `ia100226-exempt.zip`, downloaded 2026-10-03 with a User-Agent naming nodilist and a contact email, per the SEC's fair-access policy.
+- NASAA, Investment Adviser Section 2025 Annual Report, September 2025 (https://www.nasaa.org/wp-content/uploads/2025/09/IA-Section-2025-Report-FINAL.pdf), for the state-registered adviser count (context only; not part of the register).
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## trucking-companies-register-2026-10.csv
+
+- FMCSA Company Census File, data.transportation.gov dataset az4n-8mr2 (https://data.transportation.gov/Trucking-and-Motorcoaches/Company-Census-File/az4n-8mr2), rows updated 2026-10-03, read with SoQL aggregate queries on 2026-10-04. All fields are published as text; MCS-150 and add dates are `YYYYMMDD` strings.
+- FMCSA operating authority data on data.transportation.gov: the legacy Licensing and Insurance carrier file "Carrier - All With History" (dataset 6eyk-hxee, https://data.transportation.gov/Trucking-and-Motorcoaches/Carrier-All-With-History/6eyk-hxee), last refreshed 2026-05-14 and no longer updated after FMCSA moved registration to Motus, and "Motus Carrier - All With History" (dataset inys-ebih, https://data.transportation.gov/Trucking-and-Motorcoaches/Motus-Carrier-All-With-History/inys-ebih), rows updated 2026-10-03. Read on 2026-10-04 as docket number, business address state and country, bond flag and authority status only.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## venture-capital-firms-register-2026-10.csv
+
+- SEC, Information About Registered Investment Advisers and Exempt Reporting Advisers (https://www.sec.gov/data-research/sec-markets-data/information-about-registered-investment-advisers-exempt-reporting-advisers): `ia100226.zip` (holds `ia09012026.csv`) and `ia100226-exempt.zip` (holds `ia100226-exempt.csv`), file of 2026-10-02, read from disk (P8-P13); first downloaded 2026-10-03 with a User-Agent naming nodilist and a contact email, per the SEC's fair-access policy.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the rate per 100,000 residents.
+
+## veterinarians-register-2026-10.csv
+
+- Overture Maps Foundation, places theme, release 2026-09-23.1 (s3://overturemaps-us-west-2/release/2026-09-23.1/theme=places/type=place/), read 2026-10-03. See https://docs.overturemaps.org/guides/places/. Licence: CDLA Permissive 2.0 (places theme; per-record licences below).
+- U.S. Bureau of Labor Statistics, Quarterly Census of Employment and Wages (QCEW), 2025 Q4, NAICS 541940 Veterinary services, private ownership (own_code 5), industry file https://data.bls.gov/cew/data/api/2025/4/industry/541940.csv, downloaded 2026-10-03. File layout: https://www.bls.gov/cew/about-data/downloadable-file-layouts/quarterly/naics-based-quarterly-layout.htm.
+- American Veterinary Medical Association, "U.S. veterinarian numbers", https://www.avma.org/resources-tools/reports-statistics/market-research-statistics-us-veterinarians, read 2026-10-03.
+- US Census Bureau Vintage 2025 state population estimates (July 1, 2025), via FRED, for the per-100,000 rates.
+
+Contains data from Overture Maps Foundation, licensed under CDLA Permissive 2.0 (https://cdla.dev/permissive-2-0/).
+
+Per-record `sources` in the release (record-level entries only). A place counts once under each licence or dataset it carries. Per-source licences checked on https://docs.overturemaps.org/attribution/: Meta, Microsoft and other contributors under CDLA Permissive 2.0; Foursquare under Apache 2.0 (with its notice); AllThePlaces under CC0 1.0.
+
+2,593 kept locations carry a licence other than CDLA Permissive 2.0 (or none). Apache 2.0 (Foursquare) requires keeping Foursquare's copyright line, the licence and its notice file when the data is redistributed, so a list file with these rows must carry that notice, or leave the rows out.
+
